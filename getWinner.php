@@ -38,7 +38,8 @@
 		// Set the winner
 		$winner = ORM::for_table('drawWinners')->create();
 		$winner->address = $lucky->address;
-		$winner->date = date("Y-m-d", strtotime($lucky->date));
+		$winner->payout = $payout;
+		$winner->date = $yesterday;
 		$winner->save();
 
 		// Output (log)
@@ -49,4 +50,3 @@
 		// Output (log)
 		echo '['.$yesterday.'] No entries for draw' . "\n";
 	}
-
